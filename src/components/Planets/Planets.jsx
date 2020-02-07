@@ -4,9 +4,10 @@ import { getInfo } from "../../services/api";
 class Planet extends Component {
   state = { planet: null };
   componentDidMount() {
-    // console.log("this.props.location.urlPlane", this.props.location.urlPlane);
-    if (this.props.location.urlPlanet) {
-      getInfo(this.props.location.urlPlanet).then(data =>
+    const slicePlanet=this.props.location.pathname.slice(9,25)
+    const queryPlanet=`https://swapi.co/api/${slicePlanet}`
+    if (queryPlanet) {
+      getInfo(queryPlanet).then(data =>
         this.setState({ planet: data })
       );
     }

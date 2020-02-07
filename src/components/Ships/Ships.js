@@ -4,8 +4,10 @@ import { getInfo } from "../../services/api";
 class Ships extends Component {
   state = { ships: {} };
   componentDidMount() {
-    if (this.props.location.urlShip) {
-      getInfo(this.props.location.urlShip).then(data =>
+    const sliceShip=this.props.location.pathname.slice(9,25)
+    const queryShip=`https://swapi.co/api/${sliceShip}`
+    if (queryShip) {
+      getInfo(queryShip).then(data =>
         this.setState({ ships: data })
       );
     }

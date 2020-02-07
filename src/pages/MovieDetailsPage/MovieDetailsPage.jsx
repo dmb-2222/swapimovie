@@ -44,7 +44,7 @@ class MovieDetailsPage extends Component {
                     <div key={ship}>
                       <Link
                         to={{
-                          pathname: `${this.props.match.url}/ships${index + 1}`,
+                          pathname: `${this.props.match.url}/${ship.slice(21,33)}`,
                           urlShip: ship,
                           state
                         }}
@@ -61,11 +61,9 @@ class MovieDetailsPage extends Component {
                     <div key={planet}>
                       <Link
                         to={{
-                          pathname: `${this.props.match.url}/planets${index +
-                            1}`,
+                          pathname: `${this.props.match.url}/${planet.slice(21,30)}`,
                           urlPlanet: planet,
-                          state,
-                          title: planet.title
+                          state
                         }}
                       >
                         planet {index + 1}
@@ -76,8 +74,8 @@ class MovieDetailsPage extends Component {
             </div>
           </div>
         </div>
-        <Route path={`${this.props.match.url}/ships:id`} component={Ships} />
-        <Route path={`${this.props.match.url}/planets:id`} component={Planet} />
+        <Route path={`${this.props.match.url}/starships/:id`} component={Ships} />
+        <Route path={`${this.props.match.url}/planets/:id`} component={Planet} />
       </>
     );
   }
