@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import { getPlanet } from "../../services/api";
+import { getInfo } from "../../services/api";
 class Planet extends Component {
   state = { planet: {} };
   componentDidMount() {
-    getPlanet(this.props.location.urlPlanet).then(data =>
+    getInfo(this.props.location.urlPlanet).then(data =>
       this.setState({ planet: data })
     );
   }
   componentDidUpdate(prevProps, prevState) {
     if (prevState.planet.name === this.state.planet.name) {
-      getPlanet(this.props.location.urlPlanet).then(data =>
+      getInfo(this.props.location.urlPlanet).then(data =>
         this.setState({ planet: data })
       );
     }

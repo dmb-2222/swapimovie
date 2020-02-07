@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getMoviesById } from "../../services/api";
+import { getInfo } from "../../services/api";
 import { Link, Route } from "react-router-dom";
 import Ships from "../../components/Ships/Ships";
 import Planet from "../../components/Planets/Planets";
@@ -12,7 +12,7 @@ class MovieDetailsPage extends Component {
   componentDidMount() {
     const linkToMovie = this.props.match.url;
     const url = `https://swapi.co/api${linkToMovie}`;
-    getMoviesById(url).then(data => this.setState({ movieDetals: data }));
+    getInfo(url).then(data => this.setState({ movieDetals: data }));
   }
   handleGoBack = () => {
     const { location, history } = this.props;

@@ -6,13 +6,6 @@ export const getMovies = (query = "A") => {
     .then(data => data.data.results);
 };
 
-export const getMoviesById = (query = 0) => {
-  return axios.get(`${query}`).then(data => data.data);
-};
-
-export const getShip = (query = 0) => {
-  return axios.get(`${query}`).then(data => data.data);
-};
-export const getPlanet = (query = 0) => {
+export const getInfo = (query = 0) => {
   return axios.get(`${query}`).then(data => data.data);
 };
