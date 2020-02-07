@@ -22,10 +22,6 @@ class MovieDetailsPage extends Component {
   render() {
     const { movieDetals } = this.state;
     const { state } = this.props.location;
-    console.log(this.props);
-    // const ships = !movieDetals.starships
-    //   ? "no ships"
-    //   : movieDetals.starships.map(ship => ship);
     return (
       <>
         <button type="button" onClick={this.handleGoBack}>

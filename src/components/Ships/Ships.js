@@ -8,8 +8,6 @@ class Ships extends Component {
     );
   }
   componentDidUpdate(prevProps, prevState) {
-    console.log("this.props.location.urlShip", this.props.location.urlShip);
-
     if (prevState.ships.name === this.state.ships.name) {
       getInfo(this.props.location.urlShip).then(data =>
         this.setState({ ships: data })
@@ -18,7 +16,6 @@ class Ships extends Component {
   }
   render() {
     const { ships } = this.state;
-    console.log(ships);
     return (
       <>
         <h3>About ship</h3>
