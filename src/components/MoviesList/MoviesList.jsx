@@ -6,6 +6,8 @@ import styles from "./MoviesList.module.css";
 import SearchBar from "../SearchBar/SearchBar";
 
 class MoviesList extends Component {
+
+  
   state = { items: [], isLoader: true };
 
   componentDidMount() {

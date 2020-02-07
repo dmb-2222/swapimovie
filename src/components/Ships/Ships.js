@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import { getInfo } from "../../services/api";
-import PropTypes from "prop-types";
 
 class Ships extends Component {
-  static propTypes = {
-    ships: PropTypes.object.isRequired,
-  };
-
   state = { ships: {} };
   componentDidMount() {
     getInfo(this.props.location.urlShip).then(data =>
@@ -14,7 +9,7 @@ class Ships extends Component {
     );
   }
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.ships.name === this.state.ships.name) {
+    if (this.props.location.urlShip !== prevProps.location.urlShip) {
       getInfo(this.props.location.urlShip).then(data =>
         this.setState({ ships: data })
       );
@@ -22,6 +17,7 @@ class Ships extends Component {
   }
   render() {
     const { ships } = this.state;
+    console.log(ships)
     return (
       <>
         <h3>About ship</h3>

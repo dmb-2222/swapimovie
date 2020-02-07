@@ -4,8 +4,13 @@ import { Link, Route } from "react-router-dom";
 import Ships from "../../components/Ships/Ships";
 import Planet from "../../components/Planets/Planets";
 import styles from "./MovieDetailsPage.module.css";
+import PropTypes from "prop-types";
 
 class MovieDetailsPage extends Component {
+  static propTypes = {
+    history: PropTypes.object.isRequired
+  };
+
   state = {
     movieDetals: {}
   };
@@ -59,7 +64,8 @@ class MovieDetailsPage extends Component {
                           pathname: `${this.props.match.url}/planets${index +
                             1}`,
                           urlPlanet: planet,
-                          state
+                          state,
+                          title: planet.title
                         }}
                       >
                         planet {index + 1}
