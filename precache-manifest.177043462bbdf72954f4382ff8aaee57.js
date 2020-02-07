@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "27f2bf15e4c13a5e3d712b83e1e41fb6",
+    "revision": "cee246686c896a504a6c46956e4de1bf",
     "url": "/swapimovie/index.html"
   },
   {
-    "revision": "a7e95d3118595983b0ac",
+    "revision": "c485df4b6677475eeb45",
     "url": "/swapimovie/static/css/main.2dc9cc12.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/swapimovie/static/js/2.f32e6477.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a7e95d3118595983b0ac",
-    "url": "/swapimovie/static/js/main.fa38de62.chunk.js"
+    "revision": "c485df4b6677475eeb45",
+    "url": "/swapimovie/static/js/main.830be91a.chunk.js"
   },
   {
     "revision": "a1111f736019cacca37f",
