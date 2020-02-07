@@ -15,15 +15,14 @@ class MovieDetailsPage extends Component {
     getInfo(url).then(data => this.setState({ movieDetals: data }));
   }
   handleGoBack = () => {
-    const { location, history } = this.props;
-    if (location.state) {
-      history.push(location.state.from);
-    } else history.push("/");
+    const { history } = this.props;
+    history.push("/");
   };
 
   render() {
     const { movieDetals } = this.state;
     const { state } = this.props.location;
+    console.log(this.props);
     // const ships = !movieDetals.starships
     //   ? "no ships"
     //   : movieDetals.starships.map(ship => ship);

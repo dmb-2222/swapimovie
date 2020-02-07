@@ -8,7 +8,7 @@ class Ships extends Component {
     );
   }
   componentDidUpdate(prevProps, prevState) {
-    console.log("this.props.location.state", this.props.location.state);
+    console.log("this.props.location.urlShip", this.props.location.urlShip);
 
     if (prevState.ships.name === this.state.ships.name) {
       getInfo(this.props.location.urlShip).then(data =>
