@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/swapimovie/static/css/main.2dc9cc12.chunk.css",
-    "main.js": "/swapimovie/static/js/main.44749d80.chunk.js",
-    "main.js.map": "/swapimovie/static/js/main.44749d80.chunk.js.map",
+    "main.js": "/swapimovie/static/js/main.79434304.chunk.js",
+    "main.js.map": "/swapimovie/static/js/main.79434304.chunk.js.map",
     "runtime-main.js": "/swapimovie/static/js/runtime-main.810e5b12.js",
     "runtime-main.js.map": "/swapimovie/static/js/runtime-main.810e5b12.js.map",
     "static/js/2.f32e6477.chunk.js": "/swapimovie/static/js/2.f32e6477.chunk.js",
     "static/js/2.f32e6477.chunk.js.map": "/swapimovie/static/js/2.f32e6477.chunk.js.map",
     "index.html": "/swapimovie/index.html",
-    "precache-manifest.7e4cdae559513f6d5e2d1e91d24140bb.js": "/swapimovie/precache-manifest.7e4cdae559513f6d5e2d1e91d24140bb.js",
+    "precache-manifest.3997d43b79a3de86d2ea968b873e6942.js": "/swapimovie/precache-manifest.3997d43b79a3de86d2ea968b873e6942.js",
     "service-worker.js": "/swapimovie/service-worker.js",
     "static/css/main.2dc9cc12.chunk.css.map": "/swapimovie/static/css/main.2dc9cc12.chunk.css.map",
     "static/js/2.f32e6477.chunk.js.LICENSE.txt": "/swapimovie/static/js/2.f32e6477.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.810e5b12.js",
     "static/js/2.f32e6477.chunk.js",
     "static/css/main.2dc9cc12.chunk.css",
-    "static/js/main.44749d80.chunk.js"
+    "static/js/main.79434304.chunk.js"
   ]
 }
