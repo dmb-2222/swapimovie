@@ -1,5 +1,6 @@
 import React from "react";
 import styles from './SearchBar.module.css'
+import propTypes from "prop-types";
 const SearchBar = ({ handleInput, handeleSubmit, value }) => {
   return (
     <form className={styles.searchForm} onSubmit={handeleSubmit}>
@@ -15,7 +16,7 @@ const SearchBar = ({ handleInput, handeleSubmit, value }) => {
 };
 export default SearchBar;
 
-// SearchBar.propTypes = {
-//   value: propTypes.string,
-//   onInputChange: propTypes.func
-// };
+SearchBar.propTypes = {
+  value: propTypes.string,
+  onInputChange: propTypes.func
+};

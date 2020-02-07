@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import { getInfo } from "../../services/api";
+import PropTypes from "prop-types";
+
 class Ships extends Component {
+  static propTypes = {
+    ships: PropTypes.object.isRequired,
+  };
+
   state = { ships: {} };
   componentDidMount() {
     getInfo(this.props.location.urlShip).then(data =>

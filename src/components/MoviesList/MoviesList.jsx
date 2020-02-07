@@ -17,7 +17,6 @@ class MoviesList extends Component {
     getMovies(e.target.value).then(data =>
       this.setState({ items: data, isLoader: false })
     );
-    console.log(e.target.value);
   };
 
   render() {

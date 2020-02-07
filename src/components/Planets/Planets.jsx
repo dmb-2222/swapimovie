@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { getInfo } from "../../services/api";
+import PropTypes from "prop-types";
+
 class Planet extends Component {
+  static propTypes = {
+    planet: PropTypes.object.isRequired,
+  };
   state = { planet: {} };
   componentDidMount() {
     getInfo(this.props.location.urlPlanet).then(data =>
