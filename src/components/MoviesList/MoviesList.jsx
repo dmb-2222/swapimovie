@@ -1,37 +1,41 @@
 import React, { Component } from "react";
-import { getMovies } from "../../services/api";
+// import { getMovies } from "../../services/api";
 import Movie from "../Movie/Movie";
 import Loader from "../Loader/Loader";
 import styles from "./MoviesList.module.css";
 import SearchBar from "../SearchBar/SearchBar";
+import { getMoviesListFetch } from "../../redux/moviesList/moviesListOperations";
+import { debounce } from "lodash";
+import { connect } from "react-redux";
 
 class MoviesList extends Component {
 
-  
-  state = { items: [], isLoader: true };
-
   componentDidMount() {
-    getMovies().then(data => this.setState({ items: data, isLoader: false }));
+    this.props.moviesList();
   }
+
+  callAppi = debounce(value => {
+    this.props.moviesList(value);
+  }, 1000);
+
   handleInput = e => {
     e.preventDefault();
-    this.setState({ isLoader: true });
-    getMovies(e.target.value).then(data =>
-      this.setState({ items: data, isLoader: false })
-    );
+    this.callAppi(e.target.value);
   };
 
   render() {
-    const { items, isLoader } = this.state;
-    const sortMovies = items.sort(function(a, b) {
-      if (a.title > b.title) {
-        return 1;
-      }
-      if (a.title < b.title) {
-        return -1;
-      }
-      return 0;
-    });
+    const { items, isLoading } = this.props;
+    const sortMovies =
+      items &&
+      items.sort(function(a, b) {
+        if (a.title > b.title) {
+          return 1;
+        }
+        if (a.title < b.title) {
+          return -1;
+        }
+        return 0;
+      });
     return (
       <>
         <SearchBar handleInput={this.handleInput} />
@@ -48,10 +52,19 @@ class MoviesList extends Component {
             ))}
           </ul>
         )}
-        {isLoader && <Loader />}
+        {isLoading && <Loader />}
       </>
     );
   }
 }
 
-export default MoviesList;
+const mapStateToProps = state => ({
+  items: state.listMovies.movies,
+  isLoading: state.listMovies.isLoadingGetMoviesList
+});
+
+const mapDispatchToProps = dispatch => ({
+  moviesList: value => dispatch(getMoviesListFetch(value))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MoviesList);
