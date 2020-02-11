@@ -1,15 +1,19 @@
 import React, { Component } from "react";
 // import { getMovies } from "../../services/api";
 import Movie from "../Movie/Movie";
-import Loader from "../Loader/Loader";
 import styles from "./MoviesList.module.css";
 import SearchBar from "../SearchBar/SearchBar";
 import { getMoviesListFetch } from "../../redux/moviesList/moviesListOperations";
 import { debounce } from "lodash";
 import { connect } from "react-redux";
+// import {
+//   getMoviesListSelect,
+//   getisLoadingGetMoviesList
+// } from "../../redux/moviesList/moviesListSelectors";
+// second variant
+import * as moviesSelectors from "../../redux/moviesList/moviesListSelectors";
 
 class MoviesList extends Component {
-
   componentDidMount() {
     this.props.moviesList();
   }
@@ -24,7 +28,7 @@ class MoviesList extends Component {
   };
 
   render() {
-    const { items, isLoading } = this.props;
+    const { items } = this.props;
     const sortMovies =
       items &&
       items.sort(function(a, b) {
@@ -52,15 +56,13 @@ class MoviesList extends Component {
             ))}
           </ul>
         )}
-        {isLoading && <Loader />}
       </>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  items: state.listMovies.movies,
-  isLoading: state.listMovies.isLoadingGetMoviesList
+  items: moviesSelectors.getMoviesListSelect(state),
 });
 
 const mapDispatchToProps = dispatch => ({

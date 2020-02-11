@@ -1,27 +1,27 @@
 import React, { Component } from "react";
-import { getInfo } from "../../services/api";
+// import { getInfo } from "../../services/api";
+import { getInfoPlanetShipsFetch } from "../../redux/planets/planetsOperations";
+import { connect } from "react-redux";
 
 class Planet extends Component {
   state = { planet: null };
   componentDidMount() {
-    const slicePlanet=this.props.location.pathname.slice(9,25)
-    const queryPlanet=`https://swapi.co/api/${slicePlanet}`
+    const slicePlanet = this.props.location.pathname.slice(9, 25);
+    const queryPlanet = `https://swapi.co/api/${slicePlanet}`;
     if (queryPlanet) {
-      getInfo(queryPlanet).then(data =>
-        this.setState({ planet: data })
-      );
+      this.props.getPlanet(queryPlanet);
+      // getInfo(queryPlanet).then(data =>
+      //   this.setState({ planet: data })
+      // );
     }
   }
   componentDidUpdate(prevProps, prevState) {
-    // console.log("this.props.location", this.props.location);
     if (this.props.location.urlPlanet !== prevProps.location.urlPlanet) {
-      getInfo(this.props.location.urlPlanet).then(data =>
-        this.setState({ planet: data })
-      );
+      this.props.getPlanet(this.props.location.urlPlanet);
     }
   }
   render() {
-    const { planet } = this.state;
+    const { planet } = this.props;
     return (
       <>
         {planet && (
@@ -40,4 +40,13 @@ class Planet extends Component {
     );
   }
 }
-export default Planet;
+
+const mapStateToProps = state => ({
+  planet: state.planets
+});
+
+const mapDispatchToProps = dispatch => ({
+  getPlanet: value => dispatch(getInfoPlanetShipsFetch(value))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Planet);
